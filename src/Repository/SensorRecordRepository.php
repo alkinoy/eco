@@ -14,9 +14,24 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class SensorRecordRepository extends ServiceEntityRepository
 {
+    /**
+     * SensorRecordRepository constructor.
+     * @param RegistryInterface $registry
+     */
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, SensorRecord::class);
+    }
+
+    /**
+     * @param SensorRecord $sensorRecord
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function storeSensorRecord(SensorRecord $sensorRecord): void
+    {
+        $this->getEntityManager()->persist($sensorRecord);
+        $this->getEntityManager()->flush($sensorRecord);
     }
 
     // /**
