@@ -49,25 +49,56 @@ class Sensor
     private $modifiedAt;
 
     /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    private $externalId;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\SensorRecord", mappedBy="sensor", orphanRemoval=true)
      */
     private $sensorRecords;
 
+    /**
+     * Sensor constructor.
+     * @throws \Exception
+     */
     public function __construct()
     {
         $this->sensorRecords = new ArrayCollection();
+        $this->externalId = uniqid('', false);
+        $this->createdAt = new \DateTime();
+        $this->modifiedAt = new \DateTime();
     }
 
+    /**
+     * @return string
+     */
+    public function getExternalId(): string
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return Sensor
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -75,11 +106,18 @@ class Sensor
         return $this;
     }
 
+    /**
+     * @return bool|null
+     */
     public function getIsActive(): ?bool
     {
         return $this->isActive;
     }
 
+    /**
+     * @param bool $isActive
+     * @return Sensor
+     */
     public function setIsActive(bool $isActive): self
     {
         $this->isActive = $isActive;
@@ -87,11 +125,18 @@ class Sensor
         return $this;
     }
 
+    /**
+     * @return float|null
+     */
     public function getLongitude(): ?float
     {
         return $this->longitude;
     }
 
+    /**
+     * @param float $longitude
+     * @return Sensor
+     */
     public function setLongitude(float $longitude): self
     {
         $this->longitude = $longitude;
@@ -99,11 +144,18 @@ class Sensor
         return $this;
     }
 
+    /**
+     * @return float|null
+     */
     public function getLatitude(): ?float
     {
         return $this->latitude;
     }
 
+    /**
+     * @param float $latitude
+     * @return Sensor
+     */
     public function setLatitude(float $latitude): self
     {
         $this->latitude = $latitude;
@@ -111,28 +163,20 @@ class Sensor
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getModifiedAt(): ?\DateTimeInterface
     {
         return $this->modifiedAt;
-    }
-
-    public function setModifiedAt(\DateTimeInterface $modifiedAt): self
-    {
-        $this->modifiedAt = $modifiedAt;
-
-        return $this;
     }
 
     /**
@@ -143,6 +187,10 @@ class Sensor
         return $this->sensorRecords;
     }
 
+    /**
+     * @param SensorRecord $sensorRecord
+     * @return Sensor
+     */
     public function addSensorRecord(SensorRecord $sensorRecord): self
     {
         if (!$this->sensorRecords->contains($sensorRecord)) {
@@ -153,6 +201,10 @@ class Sensor
         return $this;
     }
 
+    /**
+     * @param SensorRecord $sensorRecord
+     * @return Sensor
+     */
     public function removeSensorRecord(SensorRecord $sensorRecord): self
     {
         if ($this->sensorRecords->contains($sensorRecord)) {
