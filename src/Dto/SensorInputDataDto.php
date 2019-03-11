@@ -30,6 +30,14 @@ class SensorInputDataDto
     }
 
     /**
+     * @return string
+     */
+    public function getExternalSensorId(): string
+    {
+        return $this->externalSensorId;
+    }
+
+    /**
      * @param string $type
      * @param float $value
      * @return SensorInputDataDto

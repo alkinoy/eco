@@ -40,10 +40,17 @@ class SensorValue
 
     /**
      * SensorValue constructor.
+     * @param SensorRecord $sensorRecord
+     * @param SensorValueType $valueType
+     * @param float $value
+     * @throws \Exception
      */
-    public function __construct()
+    public function __construct(SensorRecord $sensorRecord, SensorValueType $valueType, float $value)
     {
         $this->createdAt = new \DateTime();
+        $this->record = $sensorRecord;
+        $this->valueType = $valueType;
+        $this->value = $value;
     }
 
     /**
@@ -82,33 +89,11 @@ class SensorValue
     }
 
     /**
-     * @param SensorValueType|null $valueType
-     * @return SensorValue
-     */
-    public function setValueType(?SensorValueType $valueType): self
-    {
-        $this->valueType = $valueType;
-
-        return $this;
-    }
-
-    /**
      * @return float|null
      */
     public function getValue(): ?float
     {
         return $this->value;
-    }
-
-    /**
-     * @param float $value
-     * @return SensorValue
-     */
-    public function setValue(float $value): self
-    {
-        $this->value = $value;
-
-        return $this;
     }
 
     /**

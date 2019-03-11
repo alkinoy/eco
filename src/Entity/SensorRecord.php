@@ -30,18 +30,20 @@ class SensorRecord
     private $createdAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\SensorValue", mappedBy="record", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\SensorValue", mappedBy="record", orphanRemoval=true, cascade={"all"})
      */
     private $sensorValues;
 
     /**
      * SensorRecord constructor.
+     * @param Sensor $sensor
      * @throws \Exception
      */
-    public function __construct()
+    public function __construct(Sensor $sensor)
     {
         $this->sensorValues = new ArrayCollection();
         $this->createdAt = new \DateTime();
+        $this->sensor = $sensor;
     }
 
     /**
@@ -58,17 +60,6 @@ class SensorRecord
     public function getSensor(): ?Sensor
     {
         return $this->sensor;
-    }
-
-    /**
-     * @param Sensor|null $sensor
-     * @return SensorRecord
-     */
-    public function setSensor(?Sensor $sensor): self
-    {
-        $this->sensor = $sensor;
-
-        return $this;
     }
 
     /**

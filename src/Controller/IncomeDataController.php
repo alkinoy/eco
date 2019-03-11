@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Service\SensorDataService;
 use App\Service\SensorDataValidator;
+use App\Service\SensorInputDataDtoFactory;
 use App\Service\SensorRecordFactory;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,7 +35,8 @@ class IncomeDataController extends AbstractController
         LoggerInterface $logger,
         SensorRecordFactory $sensorRecordFactory,
         SensorDataService $sensorDataService,
-        SensorDataValidator $validator
+        SensorDataValidator $validator,
+        SensorInputDataDtoFactory $inputDtoFactory
     ): Response
     {
         $incomeData = $request->get(self::INCOME_DATA_KEY, null);
@@ -47,14 +49,30 @@ class IncomeDataController extends AbstractController
         $logger->info('Income request.', ['data' => $incomeData]);
 
         if (!$validator->isSensorInputHasAllMandatoryData($incomeData)) {
-            $logger->info('Income request is invalid.');
+            $logger->info('Income request is invalid: not all mandatory fields found.');
 
             return new JsonResponse(['message' => 'Wrong request'], 400);
         }
 
-        $sensorRecord = $sensorRecordFactory->createSensorRecord($incomeData);
-        $sensorDataService->storeSensorRecord($sensorRecord);
+        try {
 
-        return new JsonResponse(['message' => 'data stored']);
+            $inputDto = $inputDtoFactory->createDtoFromInput($incomeData);
+
+            $sensorRecord = $sensorRecordFactory->createSensorRecord($inputDto);
+            $sensorDataService->storeSensorRecord($sensorRecord);
+
+            return new JsonResponse(['message' => 'data stored']);
+        } catch (\Exception $e) {
+            $errorId = uniqid('', false);
+            $logger->error(
+                'Exception during store sensor input data: '.$e->getMessage(),
+                [
+                    'errorId' => $errorId,
+                    'trace' => (string)$e,
+                ]
+            );
+
+            return new JsonResponse(['message' => 'Internal error. Error id: '.$errorId], 500);
+        }
     }
 }
