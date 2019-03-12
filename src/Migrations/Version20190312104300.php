@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190312101109 extends AbstractMigration
+final class Version20190312104300 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -21,15 +21,14 @@ final class Version20190312101109 extends AbstractMigration
     {
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql("INSERT IGNORE INTO `sensor_value_type` (`id`, `name`, `type`, `round_digits`, `max_possible_value`) 
-            VALUES
-            (1, 'pm25', 'pm25', 1, 500.4),
-            (2, 'pm100', 'pm100', 0, 604),
-            (3, 'o31', 'o31', 3, 0.604),
-            (4, 'o38', 'o38', 3, 0.2),
-            (5, 'co', 'co', 1, 50.4),
-            (6, 'so2', 'so2', 0, 1004),
-            (7, 'no2', 'no2', 0, 2049);
+        $this->addSql("INSERT IGNORE INTO `sensor_value_type` (`id`, `name`, `type`, `round_digits`, `max_possible_value`, `is_in_aqi`) VALUES
+            (1, 'pm25', 'pm25', 1, 500.4, 1),
+            (2, 'pm100', 'pm100', 0, 604, 1),
+            (3, 'o31', 'o31', 3, 0.604, 1),
+            (4, 'o38', 'o38', 3, 0.2, 1),
+            (5, 'co', 'co', 1, 50.4, 1),
+            (6, 'so2', 'so2', 0, 1004, 1),
+            (7, 'no2', 'no2', 0, 2049, 1);
         ");
 
         $this->addSql("INSERT IGNORE INTO `sensor_value_breakpoints` 

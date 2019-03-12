@@ -43,6 +43,11 @@ class SensorValueType
      */
     private $maxPossibleValue;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isInAqi;
+
     public function __construct()
     {
         $this->sensorValueBreakpoints = new ArrayCollection();
@@ -145,6 +150,18 @@ class SensorValueType
     public function setMaxPossibleValue(float $maxPossibleValue): self
     {
         $this->maxPossibleValue = $maxPossibleValue;
+
+        return $this;
+    }
+
+    public function getIsInAqi(): ?bool
+    {
+        return $this->isInAqi;
+    }
+
+    public function setIsInAqi(bool $isInAqi): self
+    {
+        $this->isInAqi = $isInAqi;
 
         return $this;
     }
