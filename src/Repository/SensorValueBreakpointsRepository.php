@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\SensorValueBreakpoints;
+use App\Entity\SensorValueType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -19,32 +20,21 @@ class SensorValueBreakpointsRepository extends ServiceEntityRepository
         parent::__construct($registry, SensorValueBreakpoints::class);
     }
 
-    // /**
-    //  * @return SensorValueBreakpoints[] Returns an array of SensorValueBreakpoints objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param SensorValueType $type
+     * @param float $value
+     * @return SensorValueBreakpoints
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getBreakpoint(SensorValueType $type, float $value): SensorValueBreakpoints
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('svb')
+            ->where('svb.valueMin <= :value')
+            ->andWhere('svb.valueMax >= :value')
+            ->andWhere('svb.sensorValueType = :type')
+            ->setParameter('value', $value)
+            ->setParameter('type', $type)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getOneOrNullResult();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?SensorValueBreakpoints
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

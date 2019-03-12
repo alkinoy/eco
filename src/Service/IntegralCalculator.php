@@ -9,6 +9,7 @@
 namespace App\Service;
 
 use App\Entity\SensorRecord;
+use App\Repository\SensorValueBreakpointsRepository;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -31,20 +32,44 @@ class IntegralCalculator
     /** @var LoggerInterface */
     protected $logger;
 
+    /** @var SensorValueBreakpointsRepository */
+    protected $sensorValueBreakpointRepository;
+
     /**
      * IntegralCalculator constructor.
      * @param LoggerInterface $logger
+     * @param SensorValueBreakpointsRepository $sensorValueBreakpointRepository
      */
-    public function __construct(LoggerInterface $logger)
+    public function __construct(LoggerInterface $logger, SensorValueBreakpointsRepository $sensorValueBreakpointRepository)
     {
         $this->logger = $logger;
+        $this->sensorValueBreakpointRepository = $sensorValueBreakpointRepository;
     }
 
     /**
      * @param SensorRecord $sensorRecord
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function calculateIntegralValue(SensorRecord $sensorRecord): void
     {
+        $integralValue = 0;
 
+        foreach ($sensorRecord->getSensorValues() as $sensorValue) {
+            $breakpoint = $this->sensorValueBreakpointRepository
+                ->getBreakpoint($sensorValue->getValueType(), $sensorValue->getValue());
+
+            $a = ($breakpoint->getAqiMax() - $breakpoint->getAqiMin());
+            $b = ($sensorValue->getValue() - $breakpoint->getValueMin());
+            $c = ($breakpoint->getValueMax() - $breakpoint->getValueMin());
+
+            $currentIntegrationValue = $a*$b/$c + 101;
+
+            $integralValue = max($integralValue, $currentIntegrationValue);
+        }
+
+        $integralValue = min(self::MAX_INDEX_VALUE, $integralValue);
+        $integralValue = max(self::MIN_INDEX_VALUE, $integralValue);
+
+        $sensorRecord->setIntegralValue($integralValue);
     }
 }

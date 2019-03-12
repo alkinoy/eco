@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Service\IntegralCalculator;
 use App\Service\SensorDataService;
 use App\Service\SensorDataValidator;
 use App\Service\SensorInputDataDtoFactory;
@@ -28,6 +29,8 @@ class IncomeDataController extends AbstractController
      * @param SensorRecordFactory $sensorRecordFactory
      * @param SensorDataService $sensorDataService
      * @param SensorDataValidator $validator
+     * @param SensorInputDataDtoFactory $inputDtoFactory
+     * @param IntegralCalculator $integralCalculator
      * @return Response
      */
     public function storeSensorData(
@@ -36,7 +39,8 @@ class IncomeDataController extends AbstractController
         SensorRecordFactory $sensorRecordFactory,
         SensorDataService $sensorDataService,
         SensorDataValidator $validator,
-        SensorInputDataDtoFactory $inputDtoFactory
+        SensorInputDataDtoFactory $inputDtoFactory,
+        IntegralCalculator $integralCalculator
     ): Response
     {
         $incomeData = $request->get(self::INCOME_DATA_KEY, null);
@@ -55,10 +59,9 @@ class IncomeDataController extends AbstractController
         }
 
         try {
-
             $inputDto = $inputDtoFactory->createDtoFromInput($incomeData);
-
             $sensorRecord = $sensorRecordFactory->createSensorRecord($inputDto);
+            $integralCalculator->calculateIntegralValue($sensorRecord);
             $sensorDataService->storeSensorRecord($sensorRecord);
 
             return new JsonResponse(['message' => 'data stored']);

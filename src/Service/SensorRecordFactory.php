@@ -75,7 +75,12 @@ class SensorRecordFactory
                 continue;
             }
 
-            $sensorValue = new SensorValue($sensorRecord, $valueTypeEntity, $value);
+            //round and limit sensor's value
+            $value = round($value,$valueTypeEntity->getRoundDigits());
+            $value = min($value, $valueTypeEntity->getMaxPossibleValue());
+            $value = max(0, $value);
+
+            $sensorValue = new SensorValue($sensorRecord, $valueTypeEntity, (float)$value);
             $sensorRecord->addSensorValue($sensorValue);
         }
 
