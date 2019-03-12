@@ -55,6 +55,10 @@ class IntegralCalculator
         $integralValue = 0;
 
         foreach ($sensorRecord->getSensorValues() as $sensorValue) {
+            if (!$sensorValue->getValueType()->getIsInAqi()) {
+                continue;
+            }
+
             $breakpoint = $this->sensorValueBreakpointRepository
                 ->getBreakpoint($sensorValue->getValueType(), $sensorValue->getValue());
 
