@@ -35,6 +35,11 @@ class SensorRecord
     private $sensorValues;
 
     /**
+     * @ORM\Column(type="float")
+     */
+    private $integralValue = 0;
+
+    /**
      * SensorRecord constructor.
      * @param Sensor $sensor
      * @throws \Exception
@@ -106,6 +111,24 @@ class SensorRecord
             }
         }
 
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getIntegralValue(): float
+    {
+        return $this->integralValue;
+    }
+
+    /**
+     * @param float $integralValue
+     * @return SensorRecord
+     */
+    public function setIntegralValue(float $integralValue): SensorRecord
+    {
+        $this->integralValue = $integralValue;
         return $this;
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +27,26 @@ class SensorValueType
      * @ORM\Column(type="string", length=255)
      */
     private $type;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\SensorValueBreakpoints", mappedBy="sensorValueType")
+     */
+    private $sensorValueBreakpoints;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $roundDigits;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $maxPossibleValue;
+
+    public function __construct()
+    {
+        $this->sensorValueBreakpoints = new ArrayCollection();
+    }
 
     /**
      * @return int|null
@@ -69,6 +90,61 @@ class SensorValueType
     public function setType(string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SensorValueBreakpoints[]
+     */
+    public function getSensorValueBreakpoints(): Collection
+    {
+        return $this->sensorValueBreakpoints;
+    }
+
+    public function addSensorValueBreakpoint(SensorValueBreakpoints $sensorValueBreakpoint): self
+    {
+        if (!$this->sensorValueBreakpoints->contains($sensorValueBreakpoint)) {
+            $this->sensorValueBreakpoints[] = $sensorValueBreakpoint;
+            $sensorValueBreakpoint->setSensorValueType($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSensorValueBreakpoint(SensorValueBreakpoints $sensorValueBreakpoint): self
+    {
+        if ($this->sensorValueBreakpoints->contains($sensorValueBreakpoint)) {
+            $this->sensorValueBreakpoints->removeElement($sensorValueBreakpoint);
+            // set the owning side to null (unless already changed)
+            if ($sensorValueBreakpoint->getSensorValueType() === $this) {
+                $sensorValueBreakpoint->setSensorValueType(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getRoundDigits(): ?int
+    {
+        return $this->roundDigits;
+    }
+
+    public function setRoundDigits(int $roundDigits): self
+    {
+        $this->roundDigits = $roundDigits;
+
+        return $this;
+    }
+
+    public function getMaxPossibleValue(): ?float
+    {
+        return $this->maxPossibleValue;
+    }
+
+    public function setMaxPossibleValue(float $maxPossibleValue): self
+    {
+        $this->maxPossibleValue = $maxPossibleValue;
 
         return $this;
     }
