@@ -5,3 +5,7 @@
 api_save_sensor_data_v1:
   path: /api/v1/saveSensorData
   controller: App\Controller\IncomeDataController::storeSensorData
+
+get_map_data:
+  path: /api/v1/getMapData
+  controller: App\Controller\FrontController::getMapData

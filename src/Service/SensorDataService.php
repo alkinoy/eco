@@ -8,6 +8,7 @@
 
 namespace App\Service;
 
+use App\Dto\MapDataDto;
 use App\Entity\SensorRecord;
 use App\Repository\SensorRecordRepository;
 use Psr\Log\LoggerInterface;
@@ -24,14 +25,20 @@ class SensorDataService
     /** @var SensorRecordRepository */
     protected $sensorRecordRepository;
 
+    /** @var MapDataDtoFactory */
+    protected $mapDataDtoFactory;
+
     /**
      * SensorDataService constructor.
      * @param LoggerInterface $logger
+     * @param SensorRecordRepository $sensorRecordRepository
+     * @param MapDataDtoFactory $mapDataDtoFactory
      */
-    public function __construct(LoggerInterface $logger, SensorRecordRepository $repository)
+    public function __construct(LoggerInterface $logger, SensorRecordRepository $sensorRecordRepository, MapDataDtoFactory $mapDataDtoFactory)
     {
         $this->logger = $logger;
-        $this->sensorRecordRepository = $repository;
+        $this->sensorRecordRepository = $sensorRecordRepository;
+        $this->mapDataDtoFactory = $mapDataDtoFactory;
     }
 
     /**
@@ -42,5 +49,17 @@ class SensorDataService
     public function storeSensorRecord(SensorRecord $sensorRecord): void
     {
         $this->sensorRecordRepository->storeSensorRecord($sensorRecord);
+    }
+
+    /**
+     * @return MapDataDto
+     */
+    public function getDataForMap(): MapDataDto
+    {
+        $records = $this->sensorRecordRepository->findAll();
+        $mapDto = $this->mapDataDtoFactory->createDtoFromSensorRecords($records);
+
+        return $mapDto;
+
     }
 }
