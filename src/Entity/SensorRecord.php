@@ -40,6 +40,18 @@ class SensorRecord
     private $integralValue = 0;
 
     /**
+     * @ORM\Column(type="float")
+     * @var float
+     */
+    private $latitude = 0.0;
+
+    /**
+     * @ORM\Column(type="float")
+     * @var float
+     */
+    private $longitude = 0.0;
+
+    /**
      * SensorRecord constructor.
      * @param Sensor $sensor
      * @throws \Exception
@@ -68,9 +80,9 @@ class SensorRecord
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return \DateTime|null
      */
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
@@ -129,6 +141,42 @@ class SensorRecord
     public function setIntegralValue(float $integralValue): SensorRecord
     {
         $this->integralValue = $integralValue;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLatitude(): float
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * @param float $latitude
+     * @return SensorRecord
+     */
+    public function setLatitude(float $latitude): SensorRecord
+    {
+        $this->latitude = $latitude;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLongitude(): float
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * @param float $longitude
+     * @return SensorRecord
+     */
+    public function setLongitude(float $longitude): SensorRecord
+    {
+        $this->longitude = $longitude;
         return $this;
     }
 }

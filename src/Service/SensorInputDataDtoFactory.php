@@ -20,6 +20,8 @@ class SensorInputDataDtoFactory
     public const SENSOR_VALUES_FIELD = 'sensorValues';
     public const SENSOR_VALUE_TYPE_FIELD = 'valueType';
     public const SENSOR_VALUE_FIELD = 'value';
+    public const SENSOR_LATITUDE_FIELD = 'latitude';
+    public const SENSOR_LONGITUDE_FIELD = 'longitude';
 
 
     /**
@@ -29,6 +31,8 @@ class SensorInputDataDtoFactory
     public function createDtoFromInput(array $inputData): SensorInputDataDto
     {
         $dto = new SensorInputDataDto($inputData[self::EXTERNAL_ID_FIELD]);
+        $dto->setLatitude($inputData[self::SENSOR_LATITUDE_FIELD])
+            ->setLongitude($inputData[self::SENSOR_LONGITUDE_FIELD]);
 
         foreach ($inputData[self::SENSOR_VALUES_FIELD] as $sensorPair) {
             $dto->addSensorValue(
