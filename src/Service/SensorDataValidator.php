@@ -21,7 +21,12 @@ class SensorDataValidator
      */
     public function isSensorInputHasAllMandatoryData(array $input): bool
     {
-        $mandatoryFields = ['sensorExternalId', 'sensorValues'];
+        $mandatoryFields = [
+            SensorInputDataDtoFactory::EXTERNAL_ID_FIELD,
+            SensorInputDataDtoFactory::SENSOR_VALUES_FIELD,
+            SensorInputDataDtoFactory::SENSOR_LATITUDE_FIELD,
+            SensorInputDataDtoFactory::SENSOR_LONGITUDE_FIELD,
+        ];
 
         foreach ($mandatoryFields as $mandatoryField) {
             if (!array_key_exists($mandatoryField, $input)) {
@@ -29,14 +34,14 @@ class SensorDataValidator
             }
         }
 
-        if (!is_array($input['sensorValues'])) {
+        if (!is_array($input[SensorInputDataDtoFactory::SENSOR_VALUES_FIELD])) {
             return false;
         }
 
-        foreach ($input['sensorValues'] as $sensorValue) {
+        foreach ($input[SensorInputDataDtoFactory::SENSOR_VALUES_FIELD] as $sensorValue) {
             if (!is_array($sensorValue)
-                || !array_key_exists('valueType', $sensorValue)
-                || !array_key_exists('value', $sensorValue)
+                || !array_key_exists(SensorInputDataDtoFactory::SENSOR_VALUE_TYPE_FIELD, $sensorValue)
+                || !array_key_exists(SensorInputDataDtoFactory::SENSOR_VALUE_FIELD, $sensorValue)
             ) {
                 return false;
             }

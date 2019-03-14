@@ -30,8 +30,8 @@ class MapDataDtoFactory
         foreach ($sensorRecords as $sensorRecord) {
             $dto = (new MapSensorDataDto())
                 ->setAqi($sensorRecord->getIntegralValue())
-                ->setLatitude($sensorRecord->getSensor()->getLatitude())
-                ->setLongitude($sensorRecord->getSensor()->getLongitude())
+                ->setLatitude($sensorRecord->getLatitude())
+                ->setLongitude($sensorRecord->getLongitude())
                 ->setSensorInternalId($sensorRecord->getSensor()->getId())
                 ->setCreatedAt($sensorRecord->getCreatedAt())
             ;

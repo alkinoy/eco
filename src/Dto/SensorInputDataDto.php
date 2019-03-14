@@ -17,6 +17,12 @@ class SensorInputDataDto
     /** @var string */
     protected $externalSensorId;
 
+    /** @var float  */
+    protected $latitude = 0.0;
+
+    /** @var float  */
+    protected $longitude = 0.0;
+
     /** @var array */
     protected $sensorValues = [];
 
@@ -55,5 +61,41 @@ class SensorInputDataDto
     public function getSensorValues(): array
     {
         return $this->sensorValues;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLatitude(): float
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * @param float $latitude
+     * @return SensorInputDataDto
+     */
+    public function setLatitude(float $latitude): SensorInputDataDto
+    {
+        $this->latitude = $latitude;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLongitude(): float
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * @param float $longitude
+     * @return SensorInputDataDto
+     */
+    public function setLongitude(float $longitude): SensorInputDataDto
+    {
+        $this->longitude = $longitude;
+        return $this;
     }
 }

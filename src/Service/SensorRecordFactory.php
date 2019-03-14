@@ -59,6 +59,8 @@ class SensorRecordFactory
         }
 
         $sensorRecord = new SensorRecord($sensor);
+        $sensorRecord->setLatitude($inputData->getLatitude())
+            ->setLongitude($inputData->getLongitude());
 
         foreach ($inputData->getSensorValues() as $valueType => $value) {
             $valueTypeEntity = $this->sensorValueTypeRepository->findOneBy(['name' => $valueType]);

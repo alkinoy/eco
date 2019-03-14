@@ -29,16 +29,6 @@ class Sensor
     private $isActive;
 
     /**
-     * @ORM\Column(type="float")
-     */
-    private $longitude;
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $latitude;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
@@ -121,44 +111,6 @@ class Sensor
     public function setIsActive(bool $isActive): self
     {
         $this->isActive = $isActive;
-
-        return $this;
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getLongitude(): ?float
-    {
-        return $this->longitude;
-    }
-
-    /**
-     * @param float $longitude
-     * @return Sensor
-     */
-    public function setLongitude(float $longitude): self
-    {
-        $this->longitude = $longitude;
-
-        return $this;
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getLatitude(): ?float
-    {
-        return $this->latitude;
-    }
-
-    /**
-     * @param float $latitude
-     * @return Sensor
-     */
-    public function setLatitude(float $latitude): self
-    {
-        $this->latitude = $latitude;
 
         return $this;
     }
