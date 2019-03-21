@@ -26,6 +26,9 @@ class SensorInputDataDto
     /** @var array */
     protected $sensorValues = [];
 
+    /** @var \DateTime */
+    protected $measuredAt;
+
     /**
      * SensorInputDataDto constructor.
      * @param string $externalSensorId
@@ -96,6 +99,24 @@ class SensorInputDataDto
     public function setLongitude(float $longitude): SensorInputDataDto
     {
         $this->longitude = $longitude;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getMeasuredAt(): ?\DateTime
+    {
+        return $this->measuredAt;
+    }
+
+    /**
+     * @param \DateTime $measuredAt
+     * @return SensorInputDataDto
+     */
+    public function setMeasuredAt(\DateTime $measuredAt): SensorInputDataDto
+    {
+        $this->measuredAt = $measuredAt;
         return $this;
     }
 }

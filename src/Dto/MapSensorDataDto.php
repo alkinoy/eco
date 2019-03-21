@@ -29,6 +29,9 @@ class MapSensorDataDto
     /** @var \DateTime */
     protected $createdAt;
 
+    /** @var \DateTime */
+    protected $measuredAt;
+
     /**
      * @return int
      */
@@ -116,6 +119,24 @@ class MapSensorDataDto
     public function setCreatedAt(\DateTime $createdAt): MapSensorDataDto
     {
         $this->createdAt = $createdAt;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getMeasuredAt(): ?\DateTime
+    {
+        return $this->measuredAt;
+    }
+
+    /**
+     * @param \DateTime $measuredAt
+     * @return MapSensorDataDto
+     */
+    public function setMeasuredAt(\DateTime $measuredAt): MapSensorDataDto
+    {
+        $this->measuredAt = $measuredAt;
         return $this;
     }
 }

@@ -52,6 +52,12 @@ class SensorRecord
     private $longitude = 0.0;
 
     /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $measuredAt;
+
+    /**
      * SensorRecord constructor.
      * @param Sensor $sensor
      * @throws \Exception
@@ -177,6 +183,24 @@ class SensorRecord
     public function setLongitude(float $longitude): SensorRecord
     {
         $this->longitude = $longitude;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getMeasuredAt(): ?\DateTime
+    {
+        return $this->measuredAt;
+    }
+
+    /**
+     * @param \DateTime $measuredAt
+     * @return SensorRecord
+     */
+    public function setMeasuredAt(\DateTime $measuredAt): SensorRecord
+    {
+        $this->measuredAt = $measuredAt;
         return $this;
     }
 }

@@ -22,6 +22,7 @@ class MapDataDtoFactory
     /**
      * @param array $sensorRecords
      * @return MapDataDto
+     * @throws \Exception
      */
     public function createDtoFromSensorRecords(array $sensorRecords): MapDataDto
     {
@@ -34,6 +35,7 @@ class MapDataDtoFactory
                 ->setLongitude($sensorRecord->getLongitude())
                 ->setSensorInternalId($sensorRecord->getSensor()->getId())
                 ->setCreatedAt($sensorRecord->getCreatedAt())
+                ->setMeasuredAt($sensorRecord->getMeasuredAt()??(new \DateTime()))
             ;
 
             $mapDataDto->addSensorDataList($dto);

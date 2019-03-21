@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Exception\SensorInputDataValidationException;
 use App\Service\IntegralCalculator;
 use App\Service\SensorDataService;
 use App\Service\SensorDataValidator;
@@ -47,24 +48,24 @@ class IncomeDataController extends AbstractController
         if (null === $incomeData || !is_array($incomeData)) {
             $logger->info('Income request is invalid.');
 
-            return new JsonResponse(['message' => 'Wrong request'], 400);
+            return new JsonResponse(['message' => 'Wrong request: Invalid input data structure.'], 400);
         }
 
         $logger->info('Income request.', ['data' => $incomeData]);
 
-        if (!$validator->isSensorInputHasAllMandatoryData($incomeData)) {
-            $logger->info('Income request is invalid: not all mandatory fields found.');
-
-            return new JsonResponse(['message' => 'Wrong request'], 400);
-        }
-
         try {
+            $validator->validateInputData($incomeData);
+
             $inputDto = $inputDtoFactory->createDtoFromInput($incomeData);
             $sensorRecord = $sensorRecordFactory->createSensorRecord($inputDto);
             $integralCalculator->calculateIntegralValue($sensorRecord);
             $sensorDataService->storeSensorRecord($sensorRecord);
 
             return new JsonResponse(['message' => 'data stored']);
+        } catch (SensorInputDataValidationException $e) {
+            //error already logger in validator
+
+            return new JsonResponse(['message' => 'Wrong request: '.$e->getMessage()], 400);
         } catch (\Exception $e) {
             $errorId = uniqid('', false);
             $logger->error(
