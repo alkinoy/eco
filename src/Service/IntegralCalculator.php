@@ -74,6 +74,6 @@ class IntegralCalculator
         $integralValue = min(self::MAX_INDEX_VALUE, $integralValue);
         $integralValue = max(self::MIN_INDEX_VALUE, $integralValue);
 
-        $sensorRecord->setIntegralValue($integralValue);
+        //$sensorRecord->setIntegralValue($integralValue);
     }
 }
