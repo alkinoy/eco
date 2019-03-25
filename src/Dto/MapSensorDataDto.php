@@ -14,9 +14,6 @@ namespace App\Dto;
  */
 class MapSensorDataDto
 {
-    /** @var integer */
-    protected $sensorInternalId = 0;
-
     /** @var float */
     protected $latitude = 0.0;
 
@@ -28,27 +25,6 @@ class MapSensorDataDto
 
     /** @var \DateTime */
     protected $createdAt;
-
-    /** @var \DateTime */
-    protected $measuredAt;
-
-    /**
-     * @return int
-     */
-    public function getSensorInternalId(): int
-    {
-        return $this->sensorInternalId;
-    }
-
-    /**
-     * @param int $sensorInternalId
-     * @return MapSensorDataDto
-     */
-    public function setSensorInternalId(int $sensorInternalId): MapSensorDataDto
-    {
-        $this->sensorInternalId = $sensorInternalId;
-        return $this;
-    }
 
     /**
      * @return float
@@ -119,24 +95,6 @@ class MapSensorDataDto
     public function setCreatedAt(\DateTime $createdAt): MapSensorDataDto
     {
         $this->createdAt = $createdAt;
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getMeasuredAt(): ?\DateTime
-    {
-        return $this->measuredAt;
-    }
-
-    /**
-     * @param \DateTime $measuredAt
-     * @return MapSensorDataDto
-     */
-    public function setMeasuredAt(\DateTime $measuredAt): MapSensorDataDto
-    {
-        $this->measuredAt = $measuredAt;
         return $this;
     }
 }

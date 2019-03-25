@@ -54,6 +54,11 @@ class SensorRecord
     private $measuredAt;
 
     /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Aqi", mappedBy="sensorRecords")
+     */
+    private $aqis;
+
+    /**
      * SensorRecord constructor.
      * @param Sensor $sensor
      * @throws \Exception
@@ -63,6 +68,7 @@ class SensorRecord
         $this->sensorValues = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->sensor = $sensor;
+        $this->aqis = new ArrayCollection();
     }
 
     /**
@@ -179,6 +185,34 @@ class SensorRecord
     public function setMeasuredAt(\DateTime $measuredAt): SensorRecord
     {
         $this->measuredAt = $measuredAt;
+        return $this;
+    }
+
+    /**
+     * @return Collection|Aqi[]
+     */
+    public function getAqis(): Collection
+    {
+        return $this->aqis;
+    }
+
+    public function addAqi(Aqi $aqi): self
+    {
+        if (!$this->aqis->contains($aqi)) {
+            $this->aqis[] = $aqi;
+            $aqi->addSensorRecord($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAqi(Aqi $aqi): self
+    {
+        if ($this->aqis->contains($aqi)) {
+            $this->aqis->removeElement($aqi);
+            $aqi->removeSensorRecord($this);
+        }
+
         return $this;
     }
 }

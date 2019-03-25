@@ -48,6 +48,14 @@ class SensorValueType
      */
     private $isInAqi;
 
+    /**
+     * Period of average value calculating, in minutes
+     *
+     * @var int
+     * @ORM\Column(type="integer", options={"default" : 0})
+     */
+    private $calculatePeriod = 0;
+
     public function __construct()
     {
         $this->sensorValueBreakpoints = new ArrayCollection();
@@ -163,6 +171,24 @@ class SensorValueType
     {
         $this->isInAqi = $isInAqi;
 
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCalculatePeriod(): int
+    {
+        return $this->calculatePeriod;
+    }
+
+    /**
+     * @param int $calculatePeriod
+     * @return SensorValueType
+     */
+    public function setCalculatePeriod(int $calculatePeriod): SensorValueType
+    {
+        $this->calculatePeriod = $calculatePeriod;
         return $this;
     }
 }
