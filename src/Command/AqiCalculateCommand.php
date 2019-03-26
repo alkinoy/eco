@@ -40,6 +40,8 @@ class AqiCalculateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $output->write(date('Y-m-d H:i:s').' Start calculate AQI...');
         $this->indexCalculator->calculateAqiList();
+        $output->writeln('done!');
     }
 }
