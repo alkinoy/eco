@@ -10,6 +10,7 @@ namespace App\Service;
 
 use App\Dto\MapDataDto;
 use App\Entity\SensorRecord;
+use App\Repository\AqiRepository;
 use App\Repository\SensorRecordRepository;
 use Psr\Log\LoggerInterface;
 
@@ -28,17 +29,22 @@ class SensorDataService
     /** @var MapDataDtoFactory */
     protected $mapDataDtoFactory;
 
+    /** @var AqiRepository */
+    protected $aqiRepository;
+
     /**
      * SensorDataService constructor.
      * @param LoggerInterface $logger
      * @param SensorRecordRepository $sensorRecordRepository
      * @param MapDataDtoFactory $mapDataDtoFactory
+     * @param AqiRepository $aqiRepository
      */
-    public function __construct(LoggerInterface $logger, SensorRecordRepository $sensorRecordRepository, MapDataDtoFactory $mapDataDtoFactory)
+    public function __construct(LoggerInterface $logger, SensorRecordRepository $sensorRecordRepository, MapDataDtoFactory $mapDataDtoFactory, AqiRepository $aqiRepository)
     {
         $this->logger = $logger;
         $this->sensorRecordRepository = $sensorRecordRepository;
         $this->mapDataDtoFactory = $mapDataDtoFactory;
+        $this->aqiRepository = $aqiRepository;
     }
 
     /**
@@ -56,7 +62,10 @@ class SensorDataService
      */
     public function getDataForMap(): MapDataDto
     {
-        $records = $this->sensorRecordRepository->findAll();
+        //get last 24 hours data
+        $from = (new \DateTime())->sub(new \DateInterval('PT24H'));
+
+        $records = $this->aqiRepository->getAqiFrom($from);
         $mapDto = $this->mapDataDtoFactory->createDtoFromSensorRecords($records);
 
         return $mapDto;

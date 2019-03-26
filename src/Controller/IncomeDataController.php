@@ -58,7 +58,6 @@ class IncomeDataController extends AbstractController
 
             $inputDto = $inputDtoFactory->createDtoFromInput($incomeData);
             $sensorRecord = $sensorRecordFactory->createSensorRecord($inputDto);
-            $integralCalculator->calculateIntegralValue($sensorRecord);
             $sensorDataService->storeSensorRecord($sensorRecord);
 
             return new JsonResponse(['message' => 'data stored']);

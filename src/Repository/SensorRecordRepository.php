@@ -33,4 +33,15 @@ class SensorRecordRepository extends ServiceEntityRepository
         $this->getEntityManager()->persist($sensorRecord);
         $this->getEntityManager()->flush($sensorRecord);
     }
+
+
+    /**
+     * @param \DateTime $from
+     * @return array|SensorRecord[]
+     */
+    public function getRecordsFromPeriod(\DateTime $from):array
+    {
+        return $this->createQueryBuilder('r')->where('r.measuredAt >= :from')->setParameter('from', $from)
+            ->getQuery()->getResult();
+    }
 }

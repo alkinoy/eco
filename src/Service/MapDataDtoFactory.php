@@ -10,6 +10,7 @@ namespace App\Service;
 
 use App\Dto\MapDataDto;
 use App\Dto\MapSensorDataDto;
+use App\Entity\Aqi;
 use App\Entity\SensorRecord;
 
 /**
@@ -20,22 +21,20 @@ class MapDataDtoFactory
 {
 
     /**
-     * @param array $sensorRecords
+     * @param array|Aqi[] $aqiRecords
      * @return MapDataDto
      * @throws \Exception
      */
-    public function createDtoFromSensorRecords(array $sensorRecords): MapDataDto
+    public function createDtoFromSensorRecords(array $aqiRecords): MapDataDto
     {
         $mapDataDto = new MapDataDto();
         /** @var SensorRecord $sensorRecord */
-        foreach ($sensorRecords as $sensorRecord) {
+        foreach ($aqiRecords as $record) {
             $dto = (new MapSensorDataDto())
-                ->setAqi($sensorRecord->getIntegralValue())
-                ->setLatitude($sensorRecord->getLatitude())
-                ->setLongitude($sensorRecord->getLongitude())
-                ->setSensorInternalId($sensorRecord->getSensor()->getId())
-                ->setCreatedAt($sensorRecord->getCreatedAt())
-                ->setMeasuredAt($sensorRecord->getMeasuredAt()??(new \DateTime()))
+                ->setAqi($record->getAqi())
+                ->setLatitude($record->getLatitude())
+                ->setLongitude($record->getLongitude())
+                ->setCreatedAt($record->getCreatedAt())
             ;
 
             $mapDataDto->addSensorDataList($dto);
