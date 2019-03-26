@@ -98,6 +98,8 @@ class IntegralCalculator
         $from = (new \DateTime())->sub(new \DateInterval('PT'.(int)$hoursBack.'H'));
         $listOfRecords = $this->sensorRecordRepository->getRecordsFromPeriod($from);
 
+        $this->logger->info(count($listOfRecords).' records found for AQI calculation.');
+
         //create list of squares and sensor records for every of them.
         $squares = [];
         foreach ($listOfRecords as $sensorRecord) {
@@ -111,7 +113,7 @@ class IntegralCalculator
             $squares[$centerIndex]['records'][] = $sensorRecord;
         }
 
-        //calculate AQI
+        //prepare data set
         foreach ($squares as $dot) {
             $storeData = true;
             $aqi = (new Aqi())->setLatitude($dot['center']->getLatitude())->setLongitude($dot['center']->getLongitude());
@@ -123,6 +125,7 @@ class IntegralCalculator
                     $valueType = $value->getValueType();
                     if (!$valueType->getIsInAqi()) {
                         //this parameter doesn't taken under AQI
+                        $this->logger->info('Sensor data doesn\'t used for AQI calculation', ['valueType' => $valueType->getName(),]);
                         continue;
                     }
 
@@ -131,6 +134,13 @@ class IntegralCalculator
 
                     if ($record->getMeasuredAt() < $expireDate) {
                         //Data too old
+                        $this->logger->info(
+                            'Sensor record omitted due to expired date',
+                            [
+                                'valueType' => $valueType->getName(),
+                                'dataMeasuredAt' => $record->getMeasuredAt(),
+                            ]
+                        );
                         continue;
                     }
 
@@ -177,6 +187,7 @@ class IntegralCalculator
             if ($storeData) {
                 $aqi->setAqi($integralValue);
                 $this->aqiRepository->storeAqi($aqi);
+                $this->logger->info('AQI record created');
             }
         }
     }
