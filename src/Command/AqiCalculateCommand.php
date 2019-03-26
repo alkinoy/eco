@@ -35,6 +35,8 @@ class AqiCalculateCommand extends Command
     {
         $this->indexCalculator = $indexCalculator;
         $this->logger = $logger;
+
+        parent::__construct();
     }
 
     protected function configure()
