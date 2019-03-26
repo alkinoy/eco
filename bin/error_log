@@ -1,0 +1,105 @@
+[26-Mar-2019 11:10:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 11:10:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 11:10:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 11:15:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 11:15:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 11:15:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 11:20:02 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 11:20:02 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 11:20:02 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 11:25:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 11:25:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 11:25:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 11:30:02 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 11:30:02 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 11:30:02 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 11:35:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 11:35:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 11:35:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 11:40:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 11:40:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 11:40:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 11:45:02 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 11:45:02 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 11:45:02 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 11:50:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 11:50:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 11:50:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 11:55:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 11:55:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 11:55:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 12:00:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 12:00:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 12:00:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 12:05:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 12:05:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 12:05:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 12:10:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 12:10:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 12:10:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 12:15:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 12:15:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 12:15:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 12:20:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 12:20:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 12:20:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 12:25:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 12:25:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 12:25:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 12:30:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 12:30:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 12:30:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 12:35:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 12:35:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 12:35:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 12:40:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 12:40:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 12:40:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 12:45:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 12:45:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 12:45:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 12:50:02 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 12:50:02 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 12:50:02 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 12:55:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 12:55:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 12:55:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 13:00:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 13:00:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 13:00:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 13:05:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 13:05:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 13:05:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 13:10:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 13:10:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 13:10:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 13:15:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 13:15:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 13:15:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 13:20:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 13:20:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 13:20:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 13:25:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 13:25:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 13:25:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 13:30:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 13:30:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 13:30:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 13:35:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 13:35:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 13:35:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 13:40:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 13:40:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 13:40:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 13:45:02 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 13:45:02 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 13:45:02 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 13:50:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 13:50:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 13:50:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 13:55:02 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 13:55:02 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 13:55:02 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
+[26-Mar-2019 14:00:01 Europe/Kiev] PHP Notice:  Undefined index: argv in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 53
+[26-Mar-2019 14:00:01 Europe/Kiev] PHP Warning:  array_shift() expects parameter 1 to be array, null given in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 57
+[26-Mar-2019 14:00:01 Europe/Kiev] PHP Warning:  Invalid argument supplied for foreach() in /home/ecobrobotsorg/eco_sensors_api/vendor/symfony/console/Input/ArgvInput.php on line 276
