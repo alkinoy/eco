@@ -177,7 +177,7 @@ class IntegralCalculator
                 $b = ($sensorValue - $breakpoint->getValueMin());
                 $c = ($breakpoint->getValueMax() - $breakpoint->getValueMin());
 
-                $currentIntegrationValue = $a*$b/$c + 101;
+                $currentIntegrationValue = $a*$b/$c + $breakpoint->getValueMin();
 
                 $integralValue = max($integralValue, $currentIntegrationValue);
             }
