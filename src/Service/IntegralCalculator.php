@@ -113,7 +113,7 @@ class IntegralCalculator
             $squares[$centerIndex]['records'][] = $sensorRecord;
         }
 
-        //prepare data set
+        // prepare data set
         foreach ($squares as $dot) {
             $storeData = true;
             $aqi = (new Aqi())->setLatitude($dot['center']->getLatitude())->setLongitude($dot['center']->getLongitude());
@@ -121,10 +121,10 @@ class IntegralCalculator
             $sensorValues = [];
             /** @var SensorRecord $record */
             foreach ($dot['records'] as $record) {
-                foreach ($record->getSensorValues() as $value){
+                foreach ($record->getSensorValues() as $value) {
                     $valueType = $value->getValueType();
                     if (!$valueType->getIsInAqi()) {
-                        //this parameter doesn't taken under AQI
+                        // this parameter doesn't taken under AQI
                         $this->logger->info('Sensor data doesn\'t used for AQI calculation', ['valueType' => $valueType->getName(),]);
                         continue;
                     }
@@ -172,6 +172,10 @@ class IntegralCalculator
 
                 $breakpoint = $this->sensorValueBreakpointRepository
                     ->getBreakpoint($type, $sensorValue);
+
+                if (!$breakpoint) {
+                    continue;
+                }
 
                 $a = ($breakpoint->getAqiMax() - $breakpoint->getAqiMin());
                 $b = ($sensorValue - $breakpoint->getValueMin());
