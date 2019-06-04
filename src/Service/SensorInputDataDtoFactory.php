@@ -17,7 +17,7 @@ use App\Dto\SensorInputDataDto;
 class SensorInputDataDtoFactory
 {
     public const EXTERNAL_ID_FIELD = 'sensorExternalId';
-    public const SENSOR_VALUES_FIELD = 'sensorValues';
+    public const SENSOR_VALUES_FIELD = 'v';
     public const SENSOR_VALUE_TYPE_FIELD = 'valueType';
     public const SENSOR_VALUE_FIELD = 'value';
     public const SENSOR_LATITUDE_FIELD = 'latitude';

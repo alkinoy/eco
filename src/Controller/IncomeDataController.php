@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class IncomeDataController extends AbstractController
 {
-    public const INCOME_DATA_KEY = 'sensorData';
+    public const INCOME_DATA_KEY = 's';
 
     /**
      * @param Request $request
