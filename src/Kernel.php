@@ -21,7 +21,7 @@ class Kernel extends BaseKernel
      */
     public function __construct(string $environment, bool $debug)
     {
-        date_default_timezone_set( 'UTC' );
+        date_default_timezone_set('UTC');
         parent::__construct($environment, $debug);
     }
 

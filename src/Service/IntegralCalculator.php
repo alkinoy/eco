@@ -26,14 +26,7 @@ class IntegralCalculator
     public const MIN_INDEX_VALUE = 0;
     public const MAX_INDEX_VALUE = 500;
 
-    public const AQI_LEVEL_GOOD = 50;
-    public const AQI_LEVEL_MODERATE = 100;
-    public const AQI_LEVEL_UNHEALTHY_SENSITIVE = 150;
-    public const AQI_LEVEL_UNHEALTHY_ALL = 200;
-    public const AQI_LEVEL_VERY_UNHEALTHY = 300;
-    public const AQI_LEVEL_HAZARDOUS = 500;
-
-    public const MAP_PRECISION = 0.003;
+    public const MAP_PRECISION = 0.004;
     public const MAP_ROUND_DIGITS = 6;
 
 
