@@ -153,7 +153,7 @@ class IntegralCalculator
                 }
             }
 
-            //calculate AQI
+            // calculate AQI
             $integralValue = 0;
 
             foreach ($sensorValues as $item) {

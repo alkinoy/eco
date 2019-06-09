@@ -59,10 +59,11 @@ class SensorDataService
 
     /**
      * @return MapDataDto
+     * @throws \Exception
      */
     public function getDataForMap(): MapDataDto
     {
-        //get last 24 hours data
+        // get last 24 hours data
         $from = (new \DateTime())->sub(new \DateInterval('PT24H'));
 
         $records = $this->aqiRepository->getAqiFrom($from);

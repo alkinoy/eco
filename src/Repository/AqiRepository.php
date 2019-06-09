@@ -37,7 +37,10 @@ class AqiRepository extends ServiceEntityRepository
      */
     public function getAqiFrom(\DateTime $from): array
     {
-        return $this->createQueryBuilder('a')->where('a.createdAt >= :from')->setParameter('from', $from)
-            ->getQuery()->getResult();
+        return $this->createQueryBuilder('a')
+            ->where('a.createdAt >= :from')
+            ->setParameter('from', $from)
+            ->getQuery()
+            ->getResult();
     }
 }

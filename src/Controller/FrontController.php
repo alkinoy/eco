@@ -23,6 +23,7 @@ class FrontController extends AbstractController
      * @param SensorDataService $dataService
      * @param MapDtoSerializer $serializer
      * @return JsonResponse
+     * @throws \Exception
      */
     public function getMapData(SensorDataService $dataService, MapDtoSerializer $serializer): JsonResponse
     {
