@@ -58,15 +58,21 @@ class SensorDataService
     }
 
     /**
+     * @param bool $dev
      * @return MapDataDto
      * @throws \Exception
      */
-    public function getDataForMap(): MapDataDto
+    public function getDataForMap($dev = false): MapDataDto
     {
         // get last 24 hours data
         $from = (new \DateTime())->sub(new \DateInterval('PT24H'));
 
-        $records = $this->aqiRepository->getAqiFrom($from);
+        if ($dev) {
+            $records = $this->aqiRepository->getAqiFrom($from);
+        } else {
+            $records = $this->aqiRepository->getActiveAqiFrom($from);
+        }
+
         $mapDto = $this->mapDataDtoFactory->createDtoFromSensorRecords($records);
 
         return $mapDto;

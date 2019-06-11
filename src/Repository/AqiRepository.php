@@ -30,6 +30,21 @@ class AqiRepository extends ServiceEntityRepository
         $this->getEntityManager()->flush($aqi);
     }
 
+    /**
+     * @param \DateTime $from
+     * @return array|Aqi[]
+     */
+    public function getActiveAqiFrom(\DateTime $from): array
+    {
+        return $this->createQueryBuilder('a')
+            ->leftJoin('a.sensorRecords', 'b', 'WITH')
+            ->leftJoin('b.sensor', 'c', 'WITH')
+            ->where('a.createdAt >= :from')
+            ->andWhere('c.isActive = 1')
+            ->setParameter('from', $from)
+            ->getQuery()
+            ->getResult();
+    }
 
     /**
      * @param \DateTime $from
