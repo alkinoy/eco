@@ -101,6 +101,7 @@ class IntegralCalculator
             if (!isset($squares[$centerIndex])) {
                 $squares[$centerIndex]['records'] = [];
                 $squares[$centerIndex]['center'] = $centerOfSquare;
+                $squares[$centerIndex]['date'] = $sensorRecord->getMeasuredAt();
             }
 
             $squares[$centerIndex]['records'][] = $sensorRecord;
@@ -109,7 +110,10 @@ class IntegralCalculator
         // prepare data set
         foreach ($squares as $dot) {
             $storeData = true;
-            $aqi = (new Aqi())->setLatitude($dot['center']->getLatitude())->setLongitude($dot['center']->getLongitude());
+            $aqi = (new Aqi())
+                ->setLatitude($dot['center']->getLatitude())
+                ->setLongitude($dot['center']->getLongitude())
+                ->setCreatedAt($dot['date']);
 
             $sensorValues = [];
             /** @var SensorRecord $record */

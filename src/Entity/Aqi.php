@@ -45,7 +45,7 @@ class Aqi
 
     public function __construct()
     {
-        $this->createdAt = new \DateTime();
+        // $this->createdAt = new \DateTime();
         $this->sensorRecords = new ArrayCollection();
     }
 
