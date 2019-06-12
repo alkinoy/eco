@@ -33,8 +33,12 @@ class FrontController extends AbstractController
         MapDtoSerializer $serializer
     ): JsonResponse
     {
-        $version = $request->headers->get('X-Version');
-        $dataSet = $dataService->getDataForMap($version == 'next');
+        $version = $request->headers->get('X-Version', null);
+        $from = (new \DateTime())->sub(new \DateInterval("P{$request->get('period', 1)}D"));
+        $lat = $request->get('lat', null);
+        $lng = $request->get('lng', null);
+
+        $dataSet = $dataService->getDataForMap($from, $lat, $lng, $version == 'next');
 
         return new JsonResponse($serializer->serialize($dataSet));
     }
