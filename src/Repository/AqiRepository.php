@@ -31,6 +31,19 @@ class AqiRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param \DateTime $date
+     * @return bool
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function isExist(\DateTime $date): bool
+    {
+        return !!$this->createQueryBuilder('a')
+            ->select('count(a.id)')
+            ->where('a.createdAt = :date')->setParameter('date', $date)
+            ->getQuery()->getSingleScalarResult();
+    }
+
+    /**
      * @param \DateTime $from
      * @param string $lat
      * @param string $lng

@@ -18,4 +18,18 @@ class SensorValueTypeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, SensorValueType::class);
     }
+
+    /**
+     * @return int
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getMaxPeriod(): int
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a.calculatePeriod')
+            ->orderBy('a.calculatePeriod', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }
