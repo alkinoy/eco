@@ -109,7 +109,7 @@ class IntegralCalculator
             $inputDate
         );
 
-        $this->logger->info(count($listOfRecords).' records found for AQI calculation.');
+        // $this->logger->info(count($listOfRecords).' records found for AQI calculation.');
 
         // create list of squares and sensor records for every of them.
         $squares = [];
@@ -139,7 +139,7 @@ class IntegralCalculator
                     $valueType = $value->getValueType();
                     if (!$valueType->getIsInAqi()) {
                         // this parameter doesn't taken under AQI
-                        $this->logger->info('Sensor data doesn\'t used for AQI calculation', ['valueType' => $valueType->getName(),]);
+                        // $this->logger->info('Sensor data doesn\'t used for AQI calculation', ['valueType' => $valueType->getName(),]);
                         continue;
                     }
 
@@ -148,13 +148,13 @@ class IntegralCalculator
 
                     if ($record->getMeasuredAt() < $expireDate) {
                         // Data too old
-                        $this->logger->info(
-                            'Sensor record omitted due to expired date',
-                            [
-                                'valueType' => $valueType->getName(),
-                                'dataMeasuredAt' => $record->getMeasuredAt(),
-                            ]
-                        );
+                        // $this->logger->info(
+                        //     'Sensor record omitted due to expired date',
+                        //     [
+                        //         'valueType' => $valueType->getName(),
+                        //         'dataMeasuredAt' => $record->getMeasuredAt(),
+                        //     ]
+                        // );
                         continue;
                     }
 
