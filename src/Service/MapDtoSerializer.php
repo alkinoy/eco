@@ -43,7 +43,7 @@ class MapDtoSerializer
             $tmp[self::LATITUDE_NAME] = $item->getLatitude();
             $tmp[self::LONGITUDE_NAME] = $item->getLongitude();
             $tmp[self::AQI_NAME] = $item->getAqi();
-            $tmp[self::DATE_NAME] = $item->getCreatedAt()->format('Y.m.d H:i:s');
+            $tmp[self::DATE_NAME] = $item->getCreatedAt()->getTimestamp() * 1000;
 
             $result[] = $tmp;
         }

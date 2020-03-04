@@ -6,6 +6,8 @@
 /public/bundles/
 /var/
 /vendor/
+/bin/error_log
+/.src/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

@@ -16,10 +16,10 @@ use App\Dto\SensorInputDataDto;
  */
 class SensorInputDataDtoFactory
 {
-    public const EXTERNAL_ID_FIELD = 'sensorExternalId';
-    public const SENSOR_VALUES_FIELD = 'sensorValues';
-    public const SENSOR_VALUE_TYPE_FIELD = 'valueType';
-    public const SENSOR_VALUE_FIELD = 'value';
+    public const EXTERNAL_ID_FIELD = 'id';      // sensorExternalId
+    public const SENSOR_VALUES_FIELD = 'v';     // sensorData
+    public const SENSOR_VALUE_TYPE_FIELD = 't'; // valueType
+    public const SENSOR_VALUE_FIELD = 'u';      // value
     public const SENSOR_LATITUDE_FIELD = 'latitude';
     public const SENSOR_LONGITUDE_FIELD = 'longitude';
     public const SENSOR_MEASURED_AT_FIELD = 'date';

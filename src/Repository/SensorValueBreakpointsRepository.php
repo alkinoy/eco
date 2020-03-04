@@ -26,7 +26,7 @@ class SensorValueBreakpointsRepository extends ServiceEntityRepository
      * @return SensorValueBreakpoints
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function getBreakpoint(SensorValueType $type, float $value): SensorValueBreakpoints
+    public function getBreakpoint(SensorValueType $type, float $value): ?SensorValueBreakpoints
     {
         return $this->createQueryBuilder('svb')
             ->where('svb.valueMin <= :value')

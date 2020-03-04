@@ -12,6 +12,7 @@ use App\Dto\MapDataDto;
 use App\Entity\SensorRecord;
 use App\Repository\AqiRepository;
 use App\Repository\SensorRecordRepository;
+use phpDocumentor\Reflection\Types\Boolean;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -58,14 +59,16 @@ class SensorDataService
     }
 
     /**
+     * @param \DateTime $from
+     * @param string $lat
+     * @param string $lng
+     * @param bool $dev
      * @return MapDataDto
+     * @throws \Exception
      */
-    public function getDataForMap(): MapDataDto
+    public function getDataForMap(\DateTime $from, string $lat = null, string $lng = null, bool $dev = false): MapDataDto
     {
-        //get last 24 hours data
-        $from = (new \DateTime())->sub(new \DateInterval('PT24H'));
-
-        $records = $this->aqiRepository->getAqiFrom($from);
+        $records = $this->aqiRepository->getAqiFrom($from, $lat, $lng, $dev);
         $mapDto = $this->mapDataDtoFactory->createDtoFromSensorRecords($records);
 
         return $mapDto;

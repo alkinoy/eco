@@ -30,14 +30,43 @@ class AqiRepository extends ServiceEntityRepository
         $this->getEntityManager()->flush($aqi);
     }
 
+    /**
+     * @param \DateTime $date
+     * @return bool
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function isExist(\DateTime $date): bool
+    {
+        return !!$this->createQueryBuilder('a')
+            ->select('count(a.id)')
+            ->where('a.createdAt = :date')->setParameter('date', $date)
+            ->getQuery()->getSingleScalarResult();
+    }
 
     /**
      * @param \DateTime $from
+     * @param string $lat
+     * @param string $lng
+     * @param bool $dev
      * @return array|Aqi[]
      */
-    public function getAqiFrom(\DateTime $from): array
+    public function getAqiFrom(\DateTime $from, string $lat = null, string $lng = null, bool $dev = false): array
     {
-        return $this->createQueryBuilder('a')->where('a.createdAt >= :from')->setParameter('from', $from)
-            ->getQuery()->getResult();
+        $query = $this->createQueryBuilder('a');
+        $query->where('a.createdAt >= :from')->setParameter('from', $from);
+
+        if (!$dev)
+            $query
+                ->leftJoin('a.sensorRecords', 'b', 'WITH')
+                ->leftJoin('b.sensor', 'c', 'WITH')
+                ->andWhere('c.isActive = 1');
+
+        if ($lat)
+            $query->andWhere('a.latitude = :lat')->setParameter('lat', $lat);
+
+        if ($lng)
+            $query->andWhere('a.longitude = :lng')->setParameter('lng', $lng);
+
+        return $query->getQuery()->getResult();
     }
 }
