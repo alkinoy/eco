@@ -61,14 +61,14 @@ class AqiCalculateCommand extends Command
         $dateFrom = new \DateTime((new \DateTime($dateFrom))->format('Y-m-d H:00'));
 
         $dateTo = $input->getArgument('dateTo') ?? 'now';
-        $dateTo = new \DateTime((new \DateTime($dateTo))->format('Y-m-d H:00'));
+        $dateTo = new \DateTime((new \DateTime($dateTo))->format('Y-m-d H:i'));
 
         $output->writeln(date('Y-m-d H:i:s').' Start calculate AQI...');
         $this->logger->info('Start calculate AQI');
         while($dateFrom <= $dateTo) {
             $this->indexCalculator->calculateAqiList($dateFrom);
             $output->writeln('...'.$dateFrom->format('Y-m-d H:i').' was done!');
-            $dateFrom->add(new \DateInterval('PT1H'));
+            $dateFrom->add(new \DateInterval('PT10M'));
         }
         $this->logger->info('AQI calculation done');
         $output->writeln('done!');
