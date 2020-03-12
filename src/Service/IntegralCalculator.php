@@ -139,7 +139,6 @@ class IntegralCalculator
                     $valueType = $value->getValueType();
                     if (!$valueType->getIsInAqi()) {
                         // this parameter doesn't taken under AQI
-                        // $this->logger->info('Sensor data doesn\'t used for AQI calculation', ['valueType' => $valueType->getName(),]);
                         continue;
                     }
 
@@ -147,14 +146,6 @@ class IntegralCalculator
                     $expireDate = (clone $inputDate)->sub(new \DateInterval('PT'.(int)$periodToCalculate.'M'));
 
                     if ($record->getMeasuredAt() < $expireDate) {
-                        // Data too old
-                        // $this->logger->info(
-                        //     'Sensor record omitted due to expired date',
-                        //     [
-                        //         'valueType' => $valueType->getName(),
-                        //         'dataMeasuredAt' => $record->getMeasuredAt(),
-                        //     ]
-                        // );
                         continue;
                     }
 
@@ -169,8 +160,8 @@ class IntegralCalculator
                     }
                     $sensorValues[$valueType->getType()]['count']++;
                     $sensorValues[$valueType->getType()]['value'] += $value->getValue();
-                    $record->addAqi($aqi);
-                    $aqi->addSensorRecord($record);
+                    // $record->addAqi($aqi);
+                    // $aqi->addSensorRecord($record);
                 }
             }
 
@@ -194,7 +185,7 @@ class IntegralCalculator
                 $b = ($sensorValue - $breakpoint->getValueMin());
                 $c = ($breakpoint->getValueMax() - $breakpoint->getValueMin());
 
-                $currentIntegrationValue = $a*$b/$c + $breakpoint->getValueMin();
+                $currentIntegrationValue = $a * $b / $c + $breakpoint->getValueMin();
 
                 $integralValue = max($integralValue, $currentIntegrationValue);
             }

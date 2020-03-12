@@ -72,6 +72,5 @@ class SensorDataService
         $mapDto = $this->mapDataDtoFactory->createDtoFromSensorRecords($records);
 
         return $mapDto;
-
     }
 }

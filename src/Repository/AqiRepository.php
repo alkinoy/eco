@@ -34,6 +34,7 @@ class AqiRepository extends ServiceEntityRepository
      * @param \DateTime $date
      * @return bool
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Doctrine\ORM\NoResultException
      */
     public function isExist(\DateTime $date): bool
     {
