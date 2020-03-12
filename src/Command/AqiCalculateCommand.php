@@ -68,7 +68,7 @@ class AqiCalculateCommand extends Command
         while($dateFrom <= $dateTo) {
             $this->indexCalculator->calculateAqiList($dateFrom);
             $output->writeln('...'.$dateFrom->format('Y-m-d H:i').' was done!');
-            $dateFrom->add(new \DateInterval('PT20M'));
+            $dateFrom->add(new \DateInterval('PT1H'));
         }
         $this->logger->info('AQI calculation done');
         $output->writeln('done!');
