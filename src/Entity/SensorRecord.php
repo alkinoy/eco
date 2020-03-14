@@ -53,10 +53,10 @@ class SensorRecord
      */
     private $measuredAt;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Aqi", mappedBy="sensorRecords")
-     */
-    private $aqis;
+    // /**
+    //  * @ORM\ManyToMany(targetEntity="App\Entity\Aqi", mappedBy="sensorRecords")
+    //  */
+    // private $aqis;
 
     /**
      * SensorRecord constructor.
@@ -68,7 +68,7 @@ class SensorRecord
         $this->sensorValues = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->sensor = $sensor;
-        $this->aqis = new ArrayCollection();
+        // $this->aqis = new ArrayCollection();
     }
 
     /**
@@ -188,31 +188,31 @@ class SensorRecord
         return $this;
     }
 
-    /**
-     * @return Collection|Aqi[]
-     */
-    public function getAqis(): Collection
-    {
-        return $this->aqis;
-    }
+    // /**
+    //  * @return Collection|Aqi[]
+    //  */
+    // public function getAqis(): Collection
+    // {
+    //     return $this->aqis;
+    // }
 
-    public function addAqi(Aqi $aqi): self
-    {
-        if (!$this->aqis->contains($aqi)) {
-            $this->aqis[] = $aqi;
-            $aqi->addSensorRecord($this);
-        }
+    // public function addAqi(Aqi $aqi): self
+    // {
+    //     if (!$this->aqis->contains($aqi)) {
+    //         $this->aqis[] = $aqi;
+    //         $aqi->addSensorRecord($this);
+    //     }
+    //
+    //     return $this;
+    // }
 
-        return $this;
-    }
-
-    public function removeAqi(Aqi $aqi): self
-    {
-        if ($this->aqis->contains($aqi)) {
-            $this->aqis->removeElement($aqi);
-            $aqi->removeSensorRecord($this);
-        }
-
-        return $this;
-    }
+    // public function removeAqi(Aqi $aqi): self
+    // {
+    //     if ($this->aqis->contains($aqi)) {
+    //         $this->aqis->removeElement($aqi);
+    //         $aqi->removeSensorRecord($this);
+    //     }
+    //
+    //     return $this;
+    // }
 }

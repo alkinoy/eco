@@ -48,25 +48,20 @@ class AqiRepository extends ServiceEntityRepository
      * @param \DateTime $from
      * @param string $lat
      * @param string $lng
-     * @param bool $dev
      * @return array|Aqi[]
      */
-    public function getAqiFrom(\DateTime $from, string $lat = null, string $lng = null, bool $dev = false): array
+    public function getAqiFrom(\DateTime $from, string $lat = null, string $lng = null): array
     {
         $query = $this->createQueryBuilder('a');
         $query->where('a.createdAt >= :from')->setParameter('from', $from);
 
-        if (!$dev)
-            $query
-                ->leftJoin('a.sensorRecords', 'b', 'WITH')
-                ->leftJoin('b.sensor', 'c', 'WITH')
-                ->andWhere('c.isActive = 1');
-
-        if ($lat)
+        if ($lat) {
             $query->andWhere('a.latitude = :lat')->setParameter('lat', $lat);
+        }
 
-        if ($lng)
+        if ($lng) {
             $query->andWhere('a.longitude = :lng')->setParameter('lng', $lng);
+        }
 
         return $query->getQuery()->getResult();
     }

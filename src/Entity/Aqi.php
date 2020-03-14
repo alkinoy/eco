@@ -38,14 +38,14 @@ class Aqi
      */
     private $createdAt;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\SensorRecord", inversedBy="aqis")
-     */
-    private $sensorRecords;
+    // /**
+    //  * @ORM\ManyToMany(targetEntity="App\Entity\SensorRecord", inversedBy="aqis")
+    //  */
+    // private $sensorRecords;
 
     public function __construct()
     {
-        $this->sensorRecords = new ArrayCollection();
+        // $this->sensorRecords = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -101,29 +101,29 @@ class Aqi
         return $this;
     }
 
-    /**
-     * @return Collection|SensorRecord[]
-     */
-    public function getSensorRecords(): Collection
-    {
-        return $this->sensorRecords;
-    }
+    // /**
+    //  * @return Collection|SensorRecord[]
+    //  */
+    // public function getSensorRecords(): Collection
+    // {
+    //     return $this->sensorRecords;
+    // }
 
-    public function addSensorRecord(SensorRecord $sensorRecord): self
-    {
-        if (!$this->sensorRecords->contains($sensorRecord)) {
-            $this->sensorRecords[] = $sensorRecord;
-        }
+    // public function addSensorRecord(SensorRecord $sensorRecord): self
+    // {
+    //     if (!$this->sensorRecords->contains($sensorRecord)) {
+    //         $this->sensorRecords[] = $sensorRecord;
+    //     }
+    //
+    //     return $this;
+    // }
 
-        return $this;
-    }
-
-    public function removeSensorRecord(SensorRecord $sensorRecord): self
-    {
-        if ($this->sensorRecords->contains($sensorRecord)) {
-            $this->sensorRecords->removeElement($sensorRecord);
-        }
-
-        return $this;
-    }
+    // public function removeSensorRecord(SensorRecord $sensorRecord): self
+    // {
+    //     if ($this->sensorRecords->contains($sensorRecord)) {
+    //         $this->sensorRecords->removeElement($sensorRecord);
+    //     }
+    //
+    //     return $this;
+    // }
 }

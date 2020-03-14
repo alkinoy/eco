@@ -62,13 +62,12 @@ class SensorDataService
      * @param \DateTime $from
      * @param string $lat
      * @param string $lng
-     * @param bool $dev
      * @return MapDataDto
      * @throws \Exception
      */
-    public function getDataForMap(\DateTime $from, string $lat = null, string $lng = null, bool $dev = false): MapDataDto
+    public function getDataForMap(\DateTime $from, string $lat = null, string $lng = null): MapDataDto
     {
-        $records = $this->aqiRepository->getAqiFrom($from, $lat, $lng, $dev);
+        $records = $this->aqiRepository->getAqiFrom($from, $lat, $lng);
         $mapDto = $this->mapDataDtoFactory->createDtoFromSensorRecords($records);
 
         return $mapDto;
