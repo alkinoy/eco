@@ -48,12 +48,19 @@ class AqiRepository extends ServiceEntityRepository
      * @param \DateTime $from
      * @param string $lat
      * @param string $lng
+     * @param string $type
      * @return array|Aqi[]
      */
-    public function getAqiFrom(\DateTime $from, string $lat = null, string $lng = null): array
+    public function getAqiFrom(\DateTime $from, string $lat = null, string $lng = null, string $type = null): array
     {
         $query = $this->createQueryBuilder('a');
         $query->where('a.createdAt >= :from')->setParameter('from', $from);
+
+        if ($type) {
+            $query->andWhere('a.valueType = :type')->setParameter('type', $type);
+        } else {
+            $query->andWhere('a.valueType IS NULL');
+        }
 
         if ($lat) {
             $query->andWhere('a.latitude = :lat')->setParameter('lat', $lat);

@@ -127,10 +127,6 @@ class IntegralCalculator
         // prepare data set
         foreach ($squares as $dot) {
             $storeData = false;
-            $aqi = (new Aqi())
-                ->setLatitude($dot['center']->getLatitude())
-                ->setLongitude($dot['center']->getLongitude())
-                ->setCreatedAt($inputDate);
 
             $sensorValues = [];
             /** @var SensorRecord $record */
@@ -160,8 +156,6 @@ class IntegralCalculator
                     }
                     $sensorValues[$valueType->getType()]['count']++;
                     $sensorValues[$valueType->getType()]['value'] += $value->getValue();
-                    // $record->addAqi($aqi);
-                    // $aqi->addSensorRecord($record);
                 }
             }
 
@@ -188,13 +182,25 @@ class IntegralCalculator
                 $currentIntegrationValue = $a * $b / $c + $breakpoint->getValueMin();
 
                 $integralValue = max($integralValue, $currentIntegrationValue);
+                $aqi = (new Aqi())
+                    ->setLatitude($dot['center']->getLatitude())
+                    ->setLongitude($dot['center']->getLongitude())
+                    ->setAqi($currentIntegrationValue)
+                    ->setValueType($type)
+                    ->setCreatedAt($inputDate);
+                $this->aqiRepository->storeAqi($aqi);
+                $this->logger->info('AQI record created');
             }
 
             $integralValue = min(self::MAX_INDEX_VALUE, $integralValue);
             $integralValue = max(self::MIN_INDEX_VALUE, $integralValue);
 
             if ($storeData) {
-                $aqi->setAqi($integralValue);
+                $aqi = (new Aqi())
+                    ->setLatitude($dot['center']->getLatitude())
+                    ->setLongitude($dot['center']->getLongitude())
+                    ->setAqi($integralValue)
+                    ->setCreatedAt($inputDate);
                 $this->aqiRepository->storeAqi($aqi);
                 $this->logger->info('AQI record created');
             }

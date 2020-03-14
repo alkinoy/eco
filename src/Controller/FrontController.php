@@ -36,8 +36,9 @@ class FrontController extends AbstractController
         $from = (new \DateTime())->sub(new \DateInterval("P{$request->get('period', 7)}D"));
         $lat = $request->get('lat', null);
         $lng = $request->get('lng', null);
+        $type = $request->get('type', null);
 
-        $dataSet = $dataService->getDataForMap($from, $lat, $lng);
+        $dataSet = $dataService->getDataForMap($from, $lat, $lng, $type);
 
         return new JsonResponse($serializer->serialize($dataSet));
     }

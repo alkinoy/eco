@@ -38,6 +38,12 @@ class Aqi
      */
     private $createdAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\SensorValueType")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $valueType;
+
     // /**
     //  * @ORM\ManyToMany(targetEntity="App\Entity\SensorRecord", inversedBy="aqis")
     //  */
@@ -97,6 +103,18 @@ class Aqi
     public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getValueType(): ?SensorValueType
+    {
+        return $this->valueType;
+    }
+
+    public function setValueType(SensorValueType $valueType): self
+    {
+        $this->valueType = $valueType;
 
         return $this;
     }
